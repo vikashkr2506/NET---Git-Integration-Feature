@@ -1,7 +1,7 @@
 import pandas as pd
 from codex_widget_factory_lite.visuals.grid_table import GridTable
 # Hardcoding a sample dataframe here, please ingest your dataset or create
-sample_df = pd.DataFrame(data = [['tom', 'john', 10], ['nick', 'jack', 15], ['juli', 'jill', 12]],
+sample_df = pd.DataFrame(data = [['tom', 'sam', 10], ['nick', 'jack', 15], ['juli', 'jill', 12]],
                          columns=['Name', 'Parent', 'Age'])
 
 # Creating grid_options object with pagination and quick search options
