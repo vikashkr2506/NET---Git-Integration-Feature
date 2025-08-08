@@ -1,19 +1,19 @@
-import pandas
-import pandas as pd
-from codex_widget_factory_lite.visuals.expandable_table import ExpandableTable
-# Hardcoding a sample dataframe here, please ingest you dataset or create
-expandable_df = pd.DataFrame(
-    columns=['Region', 'Country', 'Random Metric'],
-    data=[
-        ['North America', 'USA', 100],
-        ['North America', 'USA', 200],
-        ['North America', 'Canada', 10],
-        ['North America', 'Canada', 20],
-    ]
-)
-value_cols_aggfunc_dict = { "Random Metric": "sum" }
-output= ExpandableTable(expandable_df = expandable_df,
-  value_cols_aggfunc_dict = value_cols_aggfunc_dict)
-output.add_tooltip(isTooltip=True,tooltip_text="This is a tooltip" ,placement="top")
-dynamic_outputs=output.json_string
 
+import pandas as pd
+from codex_widget_factory_lite.visuals.grid_table import GridTable
+# Hardcoding a sample dataframe here, please ingest your dataset or create
+sample_df = pd.DataFrame(data = [['tom', 'john', 10], ['nick', 'jack', 15], ['juli', 'jill', 12]],
+                         columns=['Name', 'Parent', 'Age'])
+
+# Creating grid_options object with pagination and quick search options
+grid_options = {
+    "enablePagination":True,
+    "paginationSettings": {"rowsPerPageOptions": [10, 20, 30], "rowsPerPage": 10},
+    "quickSearch": True
+}
+
+# Making 'Age' column sortable
+col_props = {'Age':{'sortable':True}}
+gridtable_output=GridTable(df = sample_df, col_props=col_props, grid_options=grid_options)
+gridtable_output.add_tooltip(isTooltip=True,tooltip_text="This is a tooltip",placement="top")
+dynamic_outputs = gridtable_output.json_string
