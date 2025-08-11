@@ -5,3 +5,4 @@ sample_df = pd.DataFrame(data = [['tom', 10], ['nick', 15],
     ['juli', 14]], columns=['Name', 'Age'])
 color_df = pd.DataFrame(['red','green','red'], columns=['Age'])
 dynamic_outputs = SimpleTable(df = sample_df, color_df=color_df).json_string
+
