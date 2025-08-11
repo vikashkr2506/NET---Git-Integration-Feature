@@ -1,3 +1,4 @@
+
 import pandas as pd
 from codex_widget_factory_lite.visuals.grid_table import GridTable
 # Hardcoding a sample dataframe here, please ingest your dataset or create
@@ -16,3 +17,4 @@ col_props = {'Age':{'sortable':True}}
 gridtable_output=GridTable(df = sample_df, col_props=col_props, grid_options=grid_options)
 gridtable_output.add_tooltip(isTooltip=True,tooltip_text="This is a tooltip",placement="top")
 dynamic_outputs = gridtable_output.json_string
+
